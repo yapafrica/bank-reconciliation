@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Your Knowledge - Bank Reconciliation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: left;
+        }
+        #quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #quiz-container h2 {
+            margin-bottom: 20px;
+        }
+        .question {
+            margin: 15px 0;
+            display: none;
+        }
+        .question input {
+            margin-right: 10px;
+        }
+        #result {
+            margin-top: 20px;
+            display: none;
+        }
+        #result p {
+            font-size: 18px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            #quiz-container {
+                width: 100%;
+            }
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="quiz-container">
+    <h2>Test Your Knowledge - You have 10 questions!</h2>
+
+    <button id="startQuizBtn">Start Quiz</button>
+
+    <div id="questions">
+        <div class="question">
+            <p>What is the main purpose of a bank reconciliation?</p>
+            <label><input type="radio" name="q1" value="a"> To ensure that the cash book and bank statement balances match</label><br>
+            <label><input type="radio" name="q1" value="b"> To record the company's transactions</label><br>
+            <label><input type="radio" name="q1" value="c"> To reconcile differences between accounts payable and accounts receivable</label><br>
+        </div>
+
+        <div class="question">
+            <p>Which of the following is typically included in a bank reconciliation statement?</p>
+            <label><input type="radio" name="q2" value="a"> Bank charges</label><br>
+            <label><input type="radio" name="q2" value="b"> Depreciation</label><br>
+            <label><input type="radio" name="q2" value="c"> Inventory</label><br>
+        </div>
+
+        <div class="question">
+            <p>What should be done if a discrepancy is found during the reconciliation process?</p>
+            <label><input type="radio" name="q3" value="a"> Ignore the discrepancy</label><br>
+            <label><input type="radio" name="q3" value="b"> Investigate the discrepancy and correct any errors</label><br>
+            <label><input type="radio" name="q3" value="c"> Adjust the company's cash book without investigation</label><br>
+        </div>
+
+        <div class="question">
+            <p>Which of the following could be a cause of a bank reconciliation discrepancy?</p>
+            <label><input type="radio" name="q4" value="a"> Bank service charges</label><br>
+            <label><input type="radio" name="q4" value="b"> All deposits made by the company</label><br>
+            <label><input type="radio" name="q4" value="c"> Unpaid bills</label><br>
+        </div>
+
+        <div class="question">
+            <p>Which document should be used to reconcile the company's cash book?</p>
+            <label><input type="radio" name="q5" value="a"> Sales invoices</label><br>
+            <label><input type="radio" name="q5" value="b"> Bank statement</label><br>
+            <label><input type="radio" name="q5" value="c"> Purchase orders</label><br>
+        </div>
+
+        <div class="question">
+            <p>How often should a company perform a bank reconciliation?</p>
+            <label><input type="radio" name="q6" value="a"> Annually</label><br>
+            <label><input type="radio" name="q6" value="b"> Monthly</label><br>
+            <label><input type="radio" name="q6" value="c"> Weekly</label><br>
+        </div>
+
+        <div class="question">
+            <p>What should be done if the company’s book balance is higher than the bank statement balance?</p>
+            <label><input type="radio" name="q7" value="a"> Investigate outstanding cheques or payments</label><br>
+            <label><input type="radio" name="q7" value="b"> Adjust the bank statement balance</label><br>
+            <label><input type="radio" name="q7" value="c"> Ignore the discrepancy</label><br>
+        </div>
+
+        <div class="question">
+            <p>What type of error is corrected by reconciling the bank statement with the cash book?</p>
+            <label><input type="radio" name="q8" value="a"> Arithmetic errors</label><br>
+            <label><input type="radio" name="q8" value="b"> Timing errors</label><br>
+            <label><input type="radio" name="q8" value="c"> Both a and b</label><br>
+        </div>
+
+        <div class="question">
+            <p>What happens when there are unrecorded deposits in the company’s cash book?</p>
+            <label><input type="radio" name="q9" value="a"> The company should add the deposits to the bank statement</label><br>
+            <label><input type="radio" name="q9" value="b"> The deposits should be added to the cash book balance</label><br>
+            <label><input type="radio" name="q9" value="c"> The deposits should be ignored</label><br>
+        </div>
+
+        <div class="question">
+            <p>What does “outstanding cheques” refer to in bank reconciliation?</p>
+            <label><input type="radio" name="q10" value="a"> Cheques that have been recorded in the bank statement</label><br>
+            <label><input type="radio" name="q10" value="b"> Cheques that have been issued but not yet presented to the bank for payment</label><br>
+            <label><input type="radio" name="q10" value="c"> Cheques that the bank has refused to honor</label><br>
+        </div>
+
+        <button id="submitBtn" style="display:none;">Submit</button>
+        <button id="retakeQuizBtn" style="display:none;" onclick="retakeQuiz()">Retake Quiz</button>
+    </div>
+
+    <div id="result" style="display:none;">
+        <p id="score"></p>
+    </div>
+</div>
+
+<script>
+    const startQuizBtn = document.getElementById('startQuizBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    const resultDiv = document.getElementById('result');
+    const scoreText = document.getElementById('score');
+    const questions = document.querySelectorAll('.question');
+    const retakeQuizBtn = document.getElementById('retakeQuizBtn');
+
+    const correctAnswers = {
+        q1: 'a',
+        q2: 'a',
+        q3: 'b',
+        q4: 'a',
+        q5: 'b',
+        q6: 'b',
+        q7: 'a',
+        q8: 'c',
+        q9: 'b',
+        q10: 'b'
+    };
+
+    let score = 0;
+
+    startQuizBtn.addEventListener('click', () => {
+        startQuizBtn.style.display = 'none';
+        questions.forEach(question => question.style.display = 'block');
+        submitBtn.style.display = 'inline-block';
+    });
+
+    submitBtn.addEventListener('click', () => {
+        score = 0;
+        questions.forEach(question => {
+            const selectedAnswer = question.querySelector('input:checked');
+            const questionName = question.querySelector('input').name;
+            if (selectedAnswer && selectedAnswer.value === correctAnswers[questionName]) {
+                score++;
+            }
+        });
+        scoreText.textContent = `You got ${score} out of 10`;
+        resultDiv.style.display = 'block';
+        submitBtn.style.display = 'none';
+        retakeQuizBtn.style.display = 'inline-block';
+    });
+
+    function retakeQuiz() {
+        questions.forEach(question => {
+            question.querySelector('input').checked = false;
+        });
+        resultDiv.style.display = 'none';
+        retakeQuizBtn.style.display = 'none';
+        startQuizBtn.style.display = 'inline-block';
+    }
+</script>
+
+</body>
+</html>
